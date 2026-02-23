@@ -47,7 +47,7 @@ int birthDay = 25; // 정수 값 생일을 저장하는 birthDay 변수 선언 �
 3. 메모리의 힙(heap)에 실제 값을 저장하고, 그 참조값(주소값)을 갖는 변수는 스택에 저장
 4. 참조현 변수는 null로 초기화 시킬 수 있다.
 ![img_3.png](img_3.png)
-5. ![img_4.png](img_4.png)
+![img_4.png](img_4.png)
 
 
 
