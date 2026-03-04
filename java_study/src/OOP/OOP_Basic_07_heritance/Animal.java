@@ -7,4 +7,5 @@ public abstract class Animal {
 
     // 추상 메소드 선언
     public abstract void sound();
+    public abstract void run();
 }
