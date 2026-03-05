@@ -197,8 +197,8 @@ public class InvalidAgeException extends Exception {
 - 기본 생성자
 - 메시지를 전달받는 생성자
 
-메시지를 부모 생성자로 전달하는 이유는  
-**getMessage() 메소드를 사용하기 위해서이다.**
+메시지를 부모 생성자로 전달하는 이유는**getMessage() 메소드를 사용하기 위해서이다.**
+
 ---
 #  6. 예외 발생 시키기
 
