@@ -233,4 +233,4 @@ String str = 10 + "";
 큰 물통 → 작은 컵 = 강제 변환  
 숫자를 읽어 해석 = 문자열 변환
 
-
+출처: https://inpa.tistory.com/entry/JAVA-☕-타입-형변환-종류-방법-💯-총정리 [Inpa Dev 👨‍💻:티스토리]
