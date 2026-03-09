@@ -13,11 +13,19 @@
 
 ### Object 클래스의 주요 메소드
 
-| 메소드 | 용도 |
+| 메소드 | 설명 |
 |------|------|
-| boolean equals(Object obj) | 객체의 번지를 비교하고 결과를 리턴 |
-| int hashCode() | 객체의 해시코드를 리턴 |
-| String toString() | 객체의 문자 정보를 리턴 |
+| protected Object clone() | 객체 자신의 **복사본을 반환**한다. |
+| public boolean equals(Object obj) | 객체 자신과 객체 `obj`가 **같은 객체인지 비교**한다. 같으면 `true` 반환 |
+| protected void finalize() | 객체가 소멸될 때 **가비지 컬렉터에 의해 호출되는 메소드**. 자원 정리에 사용되었지만 현재는 **deprecated** |
+| public Class getClass() | 객체의 **클래스 정보(Class 객체)** 를 반환 |
+| public int hashCode() | 객체의 **해시코드 값을 반환** |
+| public String toString() | 객체의 **문자열 정보를 반환** |
+| public void notify() | (쓰레드 메소드) 객체의 **대기중인 쓰레드 하나를 깨움** |
+| public void notifyAll() | (쓰레드 메소드) 객체의 **대기중인 모든 쓰레드를 깨움** |
+| public void wait() | 다른 쓰레드가 `notify()` 또는 `notifyAll()`을 호출할 때까지 **대기** |
+| public void wait(long timeout) | 지정한 시간 동안 쓰레드를 **대기 상태로 만듦** |
+| public void wait(long timeout, int nanos) | 지정된 시간(`timeout`, `nanos`) 동안 **대기** |
 
 ---
 
