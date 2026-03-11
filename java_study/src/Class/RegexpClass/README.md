@@ -19,9 +19,7 @@
 
 정규 표현식은 **문자, 숫자, 특수기호, 반복 기호를 조합하여 문자열 패턴을 정의하는 방식**이다.
 
----
-
-# 2. 정규 표현식 주요 표현
+## 정규 표현식 주요 표현
 
 | 표현 | 설명 | 예 | 의미 |
 |---|---|---|---|
@@ -42,9 +40,8 @@
 a\|b | OR 조건 | a\|b | a 또는 b |
 () | 그룹 | (abc) | abc 그룹 |
 
----
 
-# 3. 이메일 정규 표현식 예
+## 이메일 정규 표현식 예
 
 예를 들어 다음과 같은 이메일이 있다고 가정한다.
 
@@ -71,12 +68,57 @@ black@naver.com
 
 ---
 
-# 4. Pattern 클래스
+# 2. Pattern 클래스
 
 자바에서는 `java.util.regex` 패키지의 **Pattern 클래스**를 이용하여  
 정규 표현식을 검사할 수 있다.
 
-대표적인 메소드
+Pattern 클래스는 **정규 표현식을 컴파일하고 문자열을 검사하는 기능**을 제공한다.
+
+---
+
+## Pattern 클래스 주요 메소드
+
+| 메소드 | 설명 |
+|---|---|
+compile(String regex) | 정규 표현식을 컴파일하여 Pattern 객체 생성 |
+matches(String regex, CharSequence input) | 정규 표현식과 문자열이 전체 일치하는지 검사 |
+asPredicate() | 문자열을 검사할 수 있는 Predicate 생성 |
+pattern() | 컴파일된 정규 표현식을 문자열 형태로 반환 |
+split(CharSequence input) | 정규 표현식을 기준으로 문자열 분리 |
+
+
+## compile()
+
+정규 표현식을 **컴파일하여 Pattern 객체를 생성**한다.
+
+```java
+import java.util.regex.Pattern;
+
+public class CompileExample {
+
+    public static void main(String[] args) {
+
+        Pattern pattern =
+                Pattern.compile("\\d+");
+
+        System.out.println(pattern.pattern());
+
+    }
+
+}
+```
+
+설명
+
+- `Pattern.compile()`은 정규식을 **미리 컴파일하여 재사용할 때 사용한다.**
+- 반복 검사 시 **성능이 더 좋다.**
+
+
+
+## matches()
+
+정규 표현식과 문자열이 **전체 일치하는지 검사한다.**
 
 ```
 Pattern.matches(정규식, 문자열)
@@ -96,9 +138,13 @@ boolean
 - true → 패턴과 일치
 - false → 패턴 불일치
 
----
+주의
 
-# 5. Pattern.matches() 사용 예
+`matches()`는 **문자열 전체가 정규식과 일치해야 한다.**
+
+
+
+## Pattern.matches() 사용 예
 
 ```java
 import java.util.regex.Pattern;
@@ -125,9 +171,117 @@ public class RegexExample {
 true
 ```
 
----
 
-# 6. 이메일 검증 예제
+
+## pattern()
+
+컴파일된 **정규 표현식을 문자열 형태로 반환**한다.
+
+```java
+import java.util.regex.Pattern;
+
+public class PatternMethodExample {
+
+    public static void main(String[] args) {
+
+        Pattern pattern =
+                Pattern.compile("\\d{3}");
+
+        System.out.println(pattern.pattern());
+
+    }
+
+}
+```
+
+출력
+
+```
+\d{3}
+```
+
+
+## split()
+
+정규 표현식을 기준으로 **문자열을 분리한다.**
+
+```java
+import java.util.regex.Pattern;
+
+public class SplitExample {
+
+    public static void main(String[] args) {
+
+        Pattern pattern =
+                Pattern.compile(",");
+
+        String text = "apple,banana,orange";
+
+        String[] result =
+                pattern.split(text);
+
+        for (String s : result) {
+            System.out.println(s);
+        }
+
+    }
+
+}
+```
+
+출력
+
+```
+apple
+banana
+orange
+```
+
+
+
+## asPredicate()
+
+정규 표현식을 검사하는 **Predicate 객체를 생성한다.**
+
+주로 **Stream API에서 사용한다.**
+
+```java
+import java.util.regex.Pattern;
+import java.util.function.Predicate;
+
+public class PredicateExample {
+
+    public static void main(String[] args) {
+
+        Pattern pattern =
+                Pattern.compile("\\d+");
+
+        Predicate<String> predicate =
+                pattern.asPredicate();
+
+        System.out.println(predicate.test("1234"));
+        System.out.println(predicate.test("abc"));
+
+    }
+
+}
+```
+
+출력
+
+```
+true
+false
+```
+
+설명
+
+- `Predicate`는 **true / false를 반환하는 함수형 인터페이스**이다.
+- Stream 필터링에서 자주 사용된다.
+
+
+
+## 이메일 검증 예제
 
 ```java
 import java.util.regex.Pattern;
@@ -158,7 +312,7 @@ false
 
 ---
 
-# 7. 전화번호 검증 예제
+## 전화번호 검증 예제
 
 ```java
 import java.util.regex.Pattern;
