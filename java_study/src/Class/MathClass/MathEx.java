@@ -1,7 +1,5 @@
 package Class.MathClass;
 
-import javax.swing.*;
-
 public class MathEx {
     public static void main(String[] args) {
         // 큰 정수 또는 작은 정수 얻기
