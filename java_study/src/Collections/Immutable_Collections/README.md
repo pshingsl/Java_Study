@@ -1,5 +1,7 @@
 # 수정할 수 없는 컬렉션 (Immutable Collection)
 
+> 작성 일시: 2026-03-17 오후 4:40
+
 수정할 수 없는 컬렉션이란 **요소를 추가(add), 삭제(remove), 수정(set)할 수 없는 컬렉션**을 말한다.
 
 즉, **컬렉션 생성 이후 데이터를 변경할 수 없다.**
@@ -248,3 +250,6 @@ Map.copyOf()
 ```
 Arrays.asList()
 ```
+
+출처:
+https://www.youtube.com/watch?v=gHqjLbpXmDY&list=PLVsNizTWUw7EmX1Y-7tB2EmsK6nu6Q10q&index=153
