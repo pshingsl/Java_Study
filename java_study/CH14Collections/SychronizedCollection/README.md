@@ -201,3 +201,6 @@ Collections.synchronizedList()
 Collections.synchronizedSet()
 Collections.synchronizedMap()
 ```
+
+출처:
+https://www.youtube.com/watch?v=DgVZj8y7GQ8&list=PLVsNizTWUw7EmX1Y-7tB2EmsK6nu6Q10q&index=152
