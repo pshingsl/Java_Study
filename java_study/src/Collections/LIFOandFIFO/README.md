@@ -1,5 +1,7 @@
 # LIFO와 FIFO 컬렉션
 
+> 작성 일시: 2026-03-17 오후 3:40
+
 컬렉션 프레임워크에는 **LIFO와 FIFO 구조를 사용하는 컬렉션**이 존재한다.
 
 ```
@@ -259,3 +261,6 @@ Queue
 Stack → Stack 클래스
 Queue → LinkedList
 ```
+
+출처:
+https://www.youtube.com/watch?v=JLm5VxV-6Xk&list=PLVsNizTWUw7EmX1Y-7tB2EmsK6nu6Q10q&index=151
