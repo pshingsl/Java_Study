@@ -1,5 +1,7 @@
 ## 매개 변수가 있는 람다식
 
+> 작성 일시: **2026-03-18 오후 5:03**
+
 함수형 인터페이스의 추상 메소드에 **매개변수가 있을 경우** 람다식은 다음과 같이 작성할 수 있다.
 
 매개변수를 선언할 때 **타입을 생략할 수 있으며**, 구체적인 타입 대신 **var** 를 사용할 수도 있다.  
@@ -160,3 +162,6 @@ public class LambdaExample {
 결과3: 30
 결과4: 30
 ```
+
+출처:
+https://www.youtube.com/watch?v=iJIktCmxPnI&list=PLVsNizTWUw7EmX1Y-7tB2EmsK6nu6Q10q&index=156
