@@ -1,30 +1,264 @@
+## 익명 객체 (Anonymous Object)
 
-익명 객체
-익명 객체는 이름이 없는 객체를 말한다. 명시적으로 클래스를 선언하지 않기 때문에 쉽게 객체를 생성할 수 있다는 장점이 있다.
-익명 객체는 필드값, 로컬 변수값, 매개변수값으로 주로 사용된다.
-익명 객체는 클래스를 상속하거나 인터페이스를 구현해야만 생성할 수 있다.
-클래스를 상속해서 만들 경우 익명 자식 객체라고 하고, 인터페이스를 구현해서 만들 경우 익명 구현 객체라고 한다./
+익명 객체는 **이름이 없는 객체**를 의미한다.  
+클래스를 따로 선언하지 않고, **즉석에서 객체를 생성**할 수 있다.
 
-익명 자식 객체
-익명 자식 객체는 부모 클래스를 상속 받아 다음과 같이 생성된다. 이렇게 생성된 객체는 부모타입의 필드, 로컬 변수, 매개변수 값으로 대입할 수 있다.
+---
+
+## 특징
+
+- 클래스 이름 없이 객체 생성
+- 1회성으로 사용되는 경우에 적합
+- 필드, 로컬 변수, 매개변수로 주로 사용
+- 반드시 **상속 또는 인터페이스 구현 형태로 생성**
+
+---
+
+## 종류
+
+| 구분 | 설명 |
+|------|------|
+| 익명 자식 객체 | 클래스를 상속 |
+| 익명 구현 객체 | 인터페이스 구현 |
+
+---
+
+# 1. 익명 자식 객체
+
+부모 클래스를 상속하여 생성
+
+---
+
+## 기본 구조
+
+```java
+new 부모클래스(매개값...) {
+
+    // 필드
+    // 메소드 (주로 오버라이딩)
+
+};
 ```
-new 무보생성자(매개값,....) {
-	// 필드
-     // 메서드
+
+---
+
+## 특징
+
+- 부모 타입으로 참조됨
+- 부모 클래스의 메소드 재정의(오버라이딩) 주로 사용
+- 블록 내부 멤버는 외부에서 직접 접근 불가
+
+---
+
+## 예제 코드
+
+```java
+class Parent {
+    void method() {
+        System.out.println("부모 메소드");
+    }
+}
+
+public class AnonymousChildExample {
+
+    public static void main(String[] args) {
+
+        Parent obj = new Parent() {
+
+            @Override
+            void method() {
+                System.out.println("익명 자식 객체 메소드");
+            }
+        };
+
+        obj.method();
+    }
 }
 ```
-중괄호 블록 안의 필드와 메소드는 익명 자식 객체가 가져야 할 멤버로, 중괄호 블록 안에서만 사용할 수 있ㄲ다.
-익명 자식 객체는 부모 타입에 대입 되므로 부모 타입에 선언된 멤버만 접근할 수 있기 때문이다.
-중괄호 블록 안에는 주로 부모 메소드르 재정의하는 코드가 온다.
 
-예제코드
+---
 
-익명 구현 객체
-익명 구현 객체는 인터페이스르 구현해서 다음과 같이 생성된다.
-이렇게 생성된 객체는 인터페이스 타입의 필드, 로컬변수, 매개변수의 값으로 대입할 수 있다.
-익명 구현 객체는 안드로이드와 같은 UI프로그램에서 이벤트 처리하는 객체로 많이 사용된다.
+## 매개변수로 전달하는 경우
 
+```java
+class Parent {
+    void method() {
+        System.out.println("부모 메소드");
+    }
+}
 
-예제코드
+public class AnonymousChildExample2 {
 
-마크다운 문법을 적용하여 전체코드로 작성 그리고 위 내용들에 맞는 문법과 예제코드 작성해줘
+    public static void action(Parent p) {
+        p.method();
+    }
+
+    public static void main(String[] args) {
+
+        action(new Parent() {
+            @Override
+            void method() {
+                System.out.println("익명 객체 전달");
+            }
+        });
+    }
+}
+```
+
+---
+
+# 2. 익명 구현 객체
+
+인터페이스를 구현하여 생성
+
+---
+
+## 기본 구조
+
+```java
+new 인터페이스() {
+
+    @Override
+    public void method() {
+        실행문;
+    }
+
+};
+```
+
+---
+
+## 특징
+
+- 인터페이스 타입으로 참조됨
+- 반드시 모든 추상 메서드 구현
+- 이벤트 처리 및 콜백에서 많이 사용
+
+---
+
+## 예제 코드
+
+```java
+interface RemoteControl {
+    void turnOn();
+    void turnOff();
+}
+
+public class AnonymousImplExample {
+
+    public static void main(String[] args) {
+
+        RemoteControl rc = new RemoteControl() {
+
+            @Override
+            public void turnOn() {
+                System.out.println("전원 ON");
+            }
+
+            @Override
+            public void turnOff() {
+                System.out.println("전원 OFF");
+            }
+        };
+
+        rc.turnOn();
+        rc.turnOff();
+    }
+}
+```
+
+---
+
+## 매개변수로 전달
+
+```java
+interface Calculator {
+    int calc(int x, int y);
+}
+
+public class AnonymousImplExample2 {
+
+    public static void execute(Calculator c) {
+        System.out.println(c.calc(3, 5));
+    }
+
+    public static void main(String[] args) {
+
+        execute(new Calculator() {
+            @Override
+            public int calc(int x, int y) {
+                return x + y;
+            }
+        });
+    }
+}
+```
+
+---
+
+# 3. 람다식과 비교
+
+```java
+// 익명 객체
+Calculator c1 = new Calculator() {
+    @Override
+    public int calc(int x, int y) {
+        return x + y;
+    }
+};
+
+// 람다식
+Calculator c2 = (x, y) -> x + y;
+```
+
+👉 함수형 인터페이스일 경우 람다식으로 대체 가능
+
+---
+
+# 4. 실무 활용 (이벤트 처리 패턴)
+
+```java
+interface ButtonClickListener {
+    void onClick();
+}
+
+class Button {
+
+    private ButtonClickListener listener;
+
+    public void setListener(ButtonClickListener listener) {
+        this.listener = listener;
+    }
+
+    public void click() {
+        listener.onClick();
+    }
+}
+
+public class AnonymousEventExample {
+
+    public static void main(String[] args) {
+
+        Button button = new Button();
+
+        button.setListener(new ButtonClickListener() {
+            @Override
+            public void onClick() {
+                System.out.println("버튼 클릭됨");
+            }
+        });
+
+        button.click();
+    }
+}
+```
+
+---
+
+# 핵심 정리
+
+- 익명 객체 = 이름 없는 객체
+- 클래스 선언 없이 즉석 생성
+- 상속 또는 인터페이스 구현 필수
+- 주로 **오버라이딩 / 이벤트 처리 / 콜백**에 사용
+- 함수형 인터페이스는 람다로 대체 가능
