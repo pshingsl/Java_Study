@@ -1,5 +1,7 @@
 package Lamda.C6;
 
+import java.util.function.BiFunction;
+
 public class MemberEx {
     public static void main(String[] args) {
         Person person = new Person();
@@ -38,5 +40,8 @@ public class MemberEx {
 
         m2 = person.getMember2(Member::new);
         System.out.println(m2);
+
+        BiFunction<String, String, Member> fun1 = Member::new;
+        System.out.println(fun1);
     }
 }
