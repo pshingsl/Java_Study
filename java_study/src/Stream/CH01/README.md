@@ -35,7 +35,9 @@ Stream은 Iterator와 비슷한 반복자이지만 다음과 같은 차이점이
 
 ### 외부 반복자 (for문, Iterator)
 
-- 컬렉션의 요소를 **외부로 가져와서 직접 처리**
+![img_1.png](img_1.png)
+
+- 컬렉션의 요소를 for문과 Iterator를 이용해서  **외부로 가져와서 직접 처리**
 - 개발자가 반복 로직을 직접 제어
 
 ```java
@@ -61,6 +63,8 @@ while (iterator.hasNext()) {
 
 - 요소 처리 로직을 **컬렉션 내부로 전달**
 - 반복은 내부에서 수행되고, 개발자는 **처리 방식만 정의**
+
+![img_2.png](img_2.png)
 
 ```java
 list.stream()
