@@ -1,0 +1,5 @@
+{pno: 0, name: 상품0, copany: 회사0price: 10000}
+{pno: 1, name: 상품1, copany: 회사1price: 10000}
+{pno: 2, name: 상품2, copany: 회사2price: 10000}
+{pno: 3, name: 상품3, copany: 회사3price: 10000}
+{pno: 4, name: 상품4, copany: 회사4price: 10000}
