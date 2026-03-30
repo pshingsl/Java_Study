@@ -1,5 +1,7 @@
 ## 스트림(Stream)
 
+> **작성 일시:** 2026-03-30 오후 2:39
+
 지금까지 컬렉션 및 배열에 저장된 요소를 반복 처리하기 위해서는 `for문` 또는 `Iterator(반복자)`를 사용했다.
 
 이 외에도 요소를 처리하는 또 다른 방법으로 **Stream**을 사용할 수 있다.
@@ -11,6 +13,7 @@
 ## 기본 사용법
 
 ```java
+Stream<WrapperType> 변수명 = 컬렉션 변수.stream();
 Stream<String> stream = list.stream();
 stream.forEach(item -> System.out.println(item));
 ```
