@@ -32,6 +32,9 @@ public class VarEx {
         date = "2026/07/14";
         System.out.println(date);
 
-        // 참조형
+        // 오버 플로우
+        int i = 50000;
+        int d = 50000;
+        System.out.println(i * d        );
     }
 }
