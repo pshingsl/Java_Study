@@ -31,7 +31,7 @@ public class SwitchExpression {
          *
          * 주의사항
          * ㄴ break을 사용하지 않는다.
-         * ㄴ 여러 줄은 yield사용
+         * ㄴ 여러 줄은 yield 사용
          * ㄴ default를 반드시 작성하는 것이 좋다.
          * ㄴ 자바 14이상에서 사용
          * */
