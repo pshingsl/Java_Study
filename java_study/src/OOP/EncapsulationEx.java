@@ -36,7 +36,7 @@ public class EncapsulationEx {
         person1.getAge();
         person1.getName();
 
-        Person person2 = new Person(20,"Hyuk");
+        Person person2 = new Person(20,"Huk");
         person2.getAge();
         person2.getName();
     }
